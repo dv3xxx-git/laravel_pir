@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Blog\Admin\CategoryController;
 use App\Http\Controllers\Blog\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,4 +21,13 @@ Route::get('/', function () {
 
 Route::prefix('blog')->group(function () {
     Route::resource('posts', PostController::class);
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('admin/blog')->group(function () {
+    $methods = ['index','edit','store','update','create'];
+    Route::resource('categories', CategoryController::class)->only($methods)->names('blog.admin.categories');
 });
