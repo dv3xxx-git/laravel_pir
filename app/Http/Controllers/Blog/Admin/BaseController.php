@@ -7,5 +7,8 @@ use App\Http\Controllers\Blog\BaseController as BlogBaseController;
 
 class BaseController extends BlogBaseController
 {
+    public function __construct()
+    {
 
+    }
 }

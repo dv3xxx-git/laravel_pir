@@ -1,0 +1,20 @@
+
+   ErrorException 
+
+  include(/var/www/laravel_pir/vendor/composer/../../app/Http/Controllers/Blog/PostController.php): failed to open stream: No such file or directory
+
+  at vendor/composer/ClassLoader.php:444
+    440▕  * Prevents access to $this/self from included files.
+    441▕  */
+    442▕ function includeFile($file)
+    443▕ {
+  ➜ 444▕     include $file;
+    445▕ }
+    446▕
+
+      [2m+2 vendor frames [22m
+  3   [internal]:0
+      Composer\Autoload\ClassLoader::loadClass()
+
+  4   [internal]:0
+      spl_autoload_call()

@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Blog\Admin\CategoryController;
-use App\Http\Controllers\Blog\PostController;
+use App\Http\Controllers\Blog\Admin\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,4 +30,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::prefix('admin/blog')->group(function () {
     $methods = ['index','edit','store','update','create'];
     Route::resource('categories', CategoryController::class)->only($methods)->names('blog.admin.categories');
+    Route::resource('posts', PostController::class)->except('show')->names('blog.admin.posts');
 });
+
